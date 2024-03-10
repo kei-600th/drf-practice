@@ -1,0 +1,24 @@
+version: '3'
+services:
+  postgres_db:
+    container_name: postgres_db
+    image: postgres:13-bullseye
+    env_file: ./docker.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+    - "5432:5432"
+
+  backend:
+    container_name: DRF
+    env_file: ./docker.env
+    build: .
+    volumes:
+      - .:/src
+    command: tail -f /dev/null
+    ports:
+      - 8000:8000
+
+
+volumes:
+  postgres_data:
