@@ -13,3 +13,9 @@ poetry run python manage.py runserver 0.0.0.0:8000
 ~~~
 
 * 将来的にはコンテナ起動時にアプリを起動する設定にするのが望ましいですね
+
+* ボリュームされたデータを確認したい場合は以下のコマンドを実行
+
+~~~
+docker volume inspect drf-practice_postgres_data
+~~~
